@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import NewsItem from './NewsItem'
 import Spinner from './Spinner'
 import PropTypes from 'prop-types'
-
+import myImg from './pasta.webp'
 
 export class News extends Component {
 
@@ -106,7 +106,7 @@ export class News extends Component {
         {!this.state.loading && this.state.articles.map((element)=>{
 
             return <div className="col-md-4">
-            <NewsItem title={element.title?element.title:'...'} description={element.description?element.description:'...'} imageUrl = {element.urlToImage?element.urlToImage:'https://dailyhodl.com/wp-content/uploads/2022/09/BTC-for-a-Bullish.jpg'} newsUrl={element.url}
+            <NewsItem title={element.title?element.title.slice(0,45):'...'} description={element.description?element.description.slice(0,71):'...'} imageUrl = {element.urlToImage?element.urlToImage:myImg} newsUrl={element.url}
             author = {element.author?element.author:'...'} date = {element.publishedAt?element.publishedAt:'...'} source={element.source.name}/>
             </div>
         })}
